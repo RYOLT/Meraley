@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MERMELADAS</title>
+    <link rel="stylesheet" href="buyUI.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+        <header class="sec sec-hdr">
+        <div class="container">
+            <div class="l-sec l-sec--hdr">
+                <div class="block-brand">
+                    <a href="/index.html" class="logo">Logo</a>
+                </div>
+                <div class="main-menu">
+                    <div class="block-menu left-menu">
+                        <div class="block--main-menu">
+                            <ul>
+                                <li>
+                                    <a href="#" class="opt1 menu-item">Menu</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="opt2 menu-item">Promociones</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="block-menu mid-menu">
+                        <div class="brad-slogan">
+                            <p class="marca">MERALEY</p>
+                            <p>Atrevete a probar lo dulce y lo bravo</p>
+                        </div>
+                    </div>
+                    <div class="block-menu right-menu">
+                        <ul class="merme-login-register">
+                            <li>
+                                <a href="/jams.html" class="buy-merme button">Mermeladas</a>
+                            </li>
+                            <li>
+                                <a href="#" class="menu-login button">Ingresa</a>
+                            </li>
+                            <li>
+                                <a href="#" class="menu-register button">Únete</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>    
+        </div>
+    </header>
+    <!-- menu>como la producimos, promociones, sobre nosotros, mermelada --->
+
+    <section class="jams-hero">
+        <div class="tag">Colección 2026</div>
+        <h1>Nuestras Mermeladas</h1>
+    </section>
+ 
+    <section class="jams-section">
+        <div class="jams-grid" id="products-grid"></div>
+    </section>
+ 
+    <!-- MODAL -->
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal-box" id="modal-box">
+            <button class="modal-close" id="modal-close">✕</button>
+            <div id="modal-img-area"></div>
+            <div class="modal-body">
+                <div class="modal-tag" id="modal-tag"></div>
+                <h2 class="modal-title" id="modal-title"></h2>
+                <span class="modal-weight-badge">120g</span>
+                <p class="modal-desc" id="modal-desc"></p>
+                <div class="modal-divider"></div>
+                <div id="modal-stock-badge" class="modal-stock-badge"></div>
+                <div class="modal-purchase-row">
+                    <div class="qty-control">
+                        <button class="qty-btn" id="qty-minus">−</button>
+                        <span class="qty-label" id="qty-label">1</span>
+                        <button class="qty-btn" id="qty-plus">+</button>
+                    </div>
+                    <div class="modal-total">
+                        <div class="modal-total-label">Total</div>
+                        <div class="modal-total-price" id="modal-total-price">$0</div>
+                    </div>
+                </div>
+                <button class="modal-buy-btn" id="modal-buy-btn">Agregar al carrito</button>
+            </div>
+        </div>
+    </div>
+<!-- FOOTER -->
+         <footer class="sec sec-prefooter"> 
+        <div class="container">
+            <div class="l-sec l-sec--prefooter">
+                <div class="wrapper-menu">
+                    <div class="block--menu block-menu-about">
+                        <div class="abtwe">
+                            <div class="abt__head">
+                                <h3 class="display-sm text-regular">Sobre Nosotros</h3>
+                            </div>
+                            <div class="abt-body">
+                                <ul class="display-xs">
+                                    <li>
+                                        <a href="#">Como trabajamos</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Nuestra Historia</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block--menu block-menu-about">
+                        <div class="abtwe">
+                            <div class="abt__head">
+                                <h3 class="display-sn text-regular">Atención al cliente</h3>
+                            </div>
+                            <div class="abt-body">
+                                <ul class="display-xs">
+                                    <li>
+                                        <a href="#">Contáctanos</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Preguntas Frecuentes</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Formas de Comprar</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <footer class="sec sec-footer">
+        <div class="container">
+            <div class="l-sec l-sec--footer">
+                <div class="block--social-media">
+                    <ul class="social_networks">
+                        <li>
+                            <a class="facebook-icon" href="#" targe="_blank">Facebook</a>
+                        </li>
+                        <li>
+                            <a class="instagram-icon" href="#" targe="_blank">Instagram</a>
+                        </li>
+                        <li>
+                            <a class="twitter-icon" href="#" targe="_blank">Twitter</a>
+                        </li>
+                        <li>
+                            <a class="youtube-icon" href="#" targe="_blank">YouTube</a>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="block-menu block-menu-legal">
+                    <li>
+                        <a class=" menu-item" target href="#">Accesibilidad Web</a>
+                    </li>
+                    <li>
+                        <a class=" menu-item" href="#">Aviso de Privacidad</a>
+                    </li>
+                    <li>
+                        <a class=" menu-item" href="#">Boletines</a>
+                    </li>
+                    <li>
+                        <a class=" menu-item" href="#">Condiciones de uso</a>
+                    </li>
+                    <li>
+                        <a class=" menu-item" href="#">Mapa del sitio</a>
+                    </li>
+                    <li>
+                        <a class=" menu-item" href="#">Preferencias sobre cookies</a>
+                    </li>
+                </ul>
+                <span class="copyright display-xxsmall">
+                    &copy; 2026 Meraley Jam Company. Reservados todos los derechos
+                
+                </span>
+                <span class="build-id display-xxsmall">mx | prod | b3d3e13c63662e161abbb818fa8f4625e24d7ba1 | 31/03/2026-06:08:38:579 </span>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+<script type="module" src="script.js"></script>
+</html>

@@ -50,7 +50,7 @@ body {
 
 /*------------------------------------------------------------*/
 a.logo {
-    background-image: url(resources/logo2.png);
+    background-image: url(/resources/logo2.png);
     background-color: #00000000;
     background-repeat: no-repeat;
     background-position: 0 0;

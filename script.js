@@ -110,7 +110,7 @@ Ratón
             price: 85,
             stock: 24,
             emoji: "",
-            img: 'resources/fresa.png',
+            img: '/resources/fresa.png',
             desc: "Elaborada con fresas frescas seleccionadas a mano. Su sabor intenso y natural la convierte en la preferida de nuestros clientes. Perfecta para pan tostado, crepes o yogurt.",
         },
         {
@@ -120,7 +120,7 @@ Ratón
             price: 90,
             stock: 3,
             emoji: "",
-            img: 'resources/uva.png',
+            img: '/resources/uva.png',
             desc: "La mermelada que lo tiene todo: dulce con un toque picante que sorprende. Ideal para acompañar quesos, carnes o galletas saladas. ¡Atrévete a probarla!",
         },
         {
@@ -205,6 +205,13 @@ Ratón
                 if (product) openModal(product);
             });
         });
+
+        const params = new URLSearchParams(window.location.search);
+        const productoId = params.get("producto");
+        if (productoId) {
+            const product = products.find(p => p.id === parseInt(productoId));
+            if (product) openModal(product);
+        }
     }
  
     let currentProduct = null;

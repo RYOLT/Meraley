@@ -2,3 +2,239 @@
     box-sizing: border-box;
 }
 
+.container {
+    display: flex;
+    background-color: #fff;
+}
+
+@media screen and (min-width: 1200px) {
+    .img {
+        flex: 1 1 0%;
+        max-width: 50vw;
+        display: unset;
+    }
+}
+
+
+.form {
+    margin: 0 auto;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-block-end: 56px;
+    min-height: 100vh;
+}
+
+.form-head {
+    margin-block: 0px 32px;
+    margin-inline: 0px;
+    display: flex;
+    flex-direction: column;
+    min-height: 5.625rem;
+}
+
+.logo-ancle {
+    display: inline-block;
+    font-size: 0.9375rem;
+    text-decoration: none;
+    text-transform: none;
+    position: relative;
+    margin: 0px auto;
+}
+.img-logo {
+    height: 4rem;
+    width: 100%;
+    min-width: 18.75rem;
+    margin-block-end: 0.3rem;
+}
+.logo {
+    display: block;
+    position: absolute;
+    inset-block: 0px;
+    inset-inline: 0px;
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    object-fit: contain;
+    object-position: center center;
+    opacity: 1;
+    transition: opacity 200ms ease-out;
+}
+
+
+
+.form-body {
+    background-color: #fff;
+    border-radius: 32px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 30px 0px;
+    padding-block: 12px 40px;
+    overflow: hidden;
+    min-width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+
+
+
+/*-------------------------------1ra Parte Prefooter-----------------------------*/
+
+footer {
+    background-color: #fff;
+}
+
+.sec-prefooter {
+    box-shadow: 0 -6px 15px -9px #000000;
+    position: relative;
+    z-index: 1;
+}
+
+
+.sec-prefooter .wrapper-menu {
+    display: flex;
+    position: relative;
+}
+
+.sec-prefooter .wrapper-menu .block--menu {
+    margin-bottom: 0px;
+    margin-right: 40px;
+    max-width: 190px;
+}
+
+.sec-prefooter h3 {
+    font-weight: 1.188rem;
+    margin-bottom: 24px;
+    position:relative;
+    margin-top: 0;
+}
+
+.text-regular {
+    font-weight: 600;
+}
+
+.display-xs {
+    font-size: 1rem;
+}
+
+.sec-prefooter .block--nenu ul li:first-child {
+    padding-top: 0;
+}
+
+.sec-prefooter .block--menu ul li {
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+    padding-top: 8px;
+}
+
+.sec-prefooter .block--menu ul a {
+    color: #000;
+    font-weight: 400;
+}
+
+/*------------------------------2da Parte Prefooter------------------------------*/
+.sec-preefooter .wrapper-menu .block--menu:last-child{
+    margin-right: 0;
+}
+
+/*------------------------------Footer------------------------------*/
+.sec.sec-footer {
+    padding-bottom: 0;
+    padding-top: 0;
+}
+
+.sec-footer {
+    text-align: center;
+    color: #999;
+}
+
+.sec-footer .l-sec--footer {
+    /* border-top: 1px solid #80d0ffa2; */
+    padding-bottom: 20px;
+    padding-top: 0px;
+}
+
+/*------------------------------Redes------------------------------*/
+.block--social-media {
+    margin-bottom: 20px;
+}
+
+.social_networks li {
+    display: inline-block;
+}
+
+.social_networks li a.fabeook-icon {
+    background-position-y: 0;
+}
+
+.social_networks li a.instagram-icon {
+    background-position-y: -74px;
+}
+
+.social_networks li a.twitter-icon {
+    background-position-y: -148px;
+}
+
+.social_networks li a.youtube-icon {
+    background-position-y: -423px;
+}
+
+.social_networks li:last-child {
+    margin-right: 0;
+}
+
+.social_networks li a {
+    background-image: url(/resources/social_networks_v2.svg);
+    background-color: transparent;
+    background-repeat: no-repeat;
+    text-indent: -9999em;
+    background-size: 34px;
+    display: inline-block;
+    height: 34px;
+    margin-bottom: 20px;
+    margin-right: 30px;
+    width: 34px;
+}
+
+/*------------------------------Legal------------------------------*/
+ul.block-menu-legal {
+    color: #000;
+    font-size: 1rem;
+    font-weight: 300;
+    margin-bottom: 15px;
+}
+
+ul.block-menu-legal li {
+    display:inline-block;
+    margin-bottom: 10px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+ul.block-menu-legal li a {
+    position: relative;
+}
+
+ul.block-menu-legal li a:after {
+    content: "|";
+    display: block;
+    position: absolute;
+    right: -15px;
+    top: -2px;
+    color: #000;
+}
+
+/*------------------------------Span------------------------------*/
+.sec-footer .copyright {
+    color: #000;
+    display: block;
+    font-size: .875rem;
+    font-weight: 300;
+}
+
+.sec-footer .build-id {
+    color: #000;
+    display: block;
+    font-size: .625rem;
+    font-weight: 300;
+}

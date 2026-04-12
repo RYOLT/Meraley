@@ -8,114 +8,46 @@
     <link rel="stylesheet" href="/styles/signs.css">
 </head>
 <body>
-        <div class="container">
-            <div class="img">
-                <img src="" alt="">
-            </div>
-            <div class="form">
-                <div class="form-head">
-                    <a href="/index.html" class="logo-ancle">
-                        <div class="img-logo">
-                            <img src="/resources/logo2.PNG" alt="Meraley Sweet Jams" class="logo">
-                        </div>
-                    </a>
-                </div>
-                <div class="form-body"></div>
-            </div>
+    <div class="sign-wrapper">
+ 
+        <!-- Panel decorativo izquierdo -->
+        <div class="sign-panel">
+            <div class="panel-emoji">🍓</div>
+            <h2 class="panel-title">¿Aún no tienes cuenta?</h2>
+            <p class="panel-sub">Únete a MERALEY y descubre el mundo de las mermeladas artesanales. Ofertas exclusivas, novedades y más.</p>
+            <a href="signup.html" class="panel-link">Crear cuenta</a>
         </div>
-
-    
-        <footer class="sec sec-prefooter"> 
-        <div class="container">
-            <div class="l-sec l-sec--prefooter">
-                <div class="wrapper-menu">
-                    <div class="block--menu block-menu-about">
-                        <div class="abtwe">
-                            <div class="abt__head">
-                                <h3 class="display-sm text-regular">Sobre Nosotros</h3>
-                            </div>
-                            <div class="abt-body">
-                                <ul class="display-xs">
-                                    <li>
-                                        <a href="#">Como trabajamos</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Nuestra Historia</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="block--menu block-menu-about">
-                        <div class="abtwe">
-                            <div class="abt__head">
-                                <h3 class="display-sn text-regular">Atención al cliente</h3>
-                            </div>
-                            <div class="abt-body">
-                                <ul class="display-xs">
-                                    <li>
-                                        <a href="#">Contáctanos</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Preguntas Frecuentes</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Formas de Comprar</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+ 
+        <!-- Formulario derecho -->
+        <div class="sign-form-wrap">
+            <div class="form-logo">
+                <a href="/index.html">
+                    <img src="/resources/logo2.png" alt="Meraley" onerror="this.style.display='none'">
+                </a>
+                <span class="brand-name">MERALEY</span>
             </div>
-        </div>
-    </footer>
-    <footer class="sec sec-footer">
-        <div class="container">
-            <div class="l-sec l-sec--footer">
-                <div class="block--social-media">
-                    <ul class="social_networks">
-                        <li>
-                            <a class="facebook-icon" href="#" targe="_blank">Facebook</a>
-                        </li>
-                        <li>
-                            <a class="instagram-icon" href="#" targe="_blank">Instagram</a>
-                        </li>
-                        <li>
-                            <a class="twitter-icon" href="#" targe="_blank">Twitter</a>
-                        </li>
-                        <li>
-                            <a class="youtube-icon" href="#" targe="_blank">YouTube</a>
-                        </li>
-                    </ul>
-                </div>
-                <ul class="block-menu block-menu-legal">
-                    <li>
-                        <a class=" menu-item" target href="#">Accesibilidad Web</a>
-                    </li>
-                    <li>
-                        <a class=" menu-item" href="#">Aviso de Privacidad</a>
-                    </li>
-                    <li>
-                        <a class=" menu-item" href="#">Boletines</a>
-                    </li>
-                    <li>
-                        <a class=" menu-item" href="#">Condiciones de uso</a>
-                    </li>
-                    <li>
-                        <a class=" menu-item" href="#">Mapa del sitio</a>
-                    </li>
-                    <li>
-                        <a class=" menu-item" href="#">Preferencias sobre cookies</a>
-                    </li>
-                </ul>
-                <span class="copyright display-xxsmall">
-                    &copy; 2026 Meraley Jam Company. Reservados todos los derechos
-                
-                </span>
-                <span class="build-id display-xxsmall">mx | prod | b3d3e13c63662e161abbb818fa8f4625e24d7ba1 | 31/03/2026-06:08:38:579 </span>
+ 
+            <h1 class="form-title">Bienvenido de vuelta</h1>
+            <p class="form-subtitle">Ingresa tus datos para continuar</p>
+ 
+            <div class="field-group">
+                <label for="email">Correo electrónico</label>
+                <input type="email" id="email" placeholder="tu@correo.com" required>
             </div>
+ 
+            <div class="field-group">
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" placeholder="••••••••" required>
+            </div>
+ 
+            <a href="#" class="forgot-link">¿Olvidaste tu contraseña?</a>
+ 
+            <button class="btn-primary">Iniciar sesión</button>
+ 
+            <div class="or-sep"><span>O</span></div>
+ 
+            <p class="switch-link">¿No tienes cuenta? <a href="signup.html">Regístrate</a></p>
         </div>
-    </footer>
+    </div>
 </body>
 </html>

@@ -1,240 +1,365 @@
-*, :after, :before {
-    box-sizing: border-box;
-}
-
-.container {
-    display: flex;
-    background-color: #fff;
-}
-
-@media screen and (min-width: 1200px) {
-    .img {
-        flex: 1 1 0%;
-        max-width: 50vw;
-        display: unset;
-    }
-}
-
-
-.form {
-    margin: 0 auto;
-    max-width: 400px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-block-end: 56px;
+*, *::before, *::after { box-sizing: border-box; }
+ 
+body {
+    margin: 0;
     min-height: 100vh;
-}
-
-.form-head {
-    margin-block: 0px 32px;
-    margin-inline: 0px;
+    background: var(--cream);
+    font-family: 'DM Sans', sans-serif;
     display: flex;
     flex-direction: column;
-    min-height: 5.625rem;
 }
-
-.logo-ancle {
-    display: inline-block;
-    font-size: 0.9375rem;
-    text-decoration: none;
-    text-transform: none;
+ 
+/* ===== LAYOUT ===== */
+.sign-wrapper {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: calc(100vh - 200px);
+}
+ 
+/* ===== PANEL DECORATIVO ===== */
+.sign-panel {
+    background: linear-gradient(160deg, #410101 0%, #c43030 50%, #ff8080 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 48px;
     position: relative;
-    margin: 0px auto;
-}
-.img-logo {
-    height: 4rem;
-    width: 100%;
-    min-width: 18.75rem;
-    margin-block-end: 0.3rem;
-}
-.logo {
-    display: block;
-    position: absolute;
-    inset-block: 0px;
-    inset-inline: 0px;
-    height: 100%;
-    width: 100%;
-    margin: auto;
-    object-fit: contain;
-    object-position: center center;
-    opacity: 1;
-    transition: opacity 200ms ease-out;
-}
-
-
-
-.form-body {
-    background-color: #fff;
-    border-radius: 32px;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 30px 0px;
-    padding-block: 12px 40px;
     overflow: hidden;
-    min-width: 400px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
 }
-
-
-
-
-/*-------------------------------1ra Parte Prefooter-----------------------------*/
-
-footer {
-    background-color: #fff;
-}
-
-.sec-prefooter {
-    box-shadow: 0 -6px 15px -9px #000000;
+ 
+ 
+.panel-emoji {
+    font-size: 4.5rem;
+    margin-bottom: 24px;
     position: relative;
     z-index: 1;
 }
-
-
-.sec-prefooter .wrapper-menu {
-    display: flex;
+ 
+.panel-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    font-weight: 900;
+    color: #fff;
+    text-align: center;
+    margin: 0 0 16px;
+    line-height: 1.15;
     position: relative;
+    z-index: 1;
 }
-
-.sec-prefooter .wrapper-menu .block--menu {
-    margin-bottom: 0px;
-    margin-right: 40px;
-    max-width: 190px;
+ 
+.panel-sub {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.75);
+    text-align: center;
+    line-height: 1.7;
+    margin: 0 0 36px;
+    position: relative;
+    z-index: 1;
 }
-
-.sec-prefooter h3 {
-    font-weight: 1.188rem;
+ 
+.panel-link {
+    display: inline-block;
+    border: 2px solid rgba(255,255,255,0.5);
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 12px 32px;
+    border-radius: 50px;
+    transition: background 0.2s, border-color 0.2s;
+    position: relative;
+    z-index: 1;
+}
+ 
+.panel-link:hover {
+    background: rgba(255,255,255,0.15);
+    border-color: #fff;
+}
+ 
+/* ===== FORMULARIO ===== */
+.sign-form-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 48px;
+    background: #fff;
+}
+ 
+.form-logo {
+    margin-bottom: 28px;
+    text-align: center;
+}
+ 
+.form-logo img {
+    height: 150px;
+    width: auto;
+}
+ 
+.form-logo .brand-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: var(--red);
+    letter-spacing: 4px;
+    display: block;
+    margin-top: 6px;
+   
+}
+ 
+.brand-name a {
+    text-decoration: none;
+    color: var(--red);
+     text-transform: none;
+}
+.form-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin: 0 0 8px;
+    text-align: center;
+}
+ 
+.form-subtitle {
+    font-size: 0.88rem;
+    color: #999;
+    text-align: center;
+    margin: 0 0 30px;
+    letter-spacing: 0.5px;
+}
+ 
+/* ===== CAMPOS ===== */
+.field-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    width: 100%;
+    max-width: 380px;
+    margin-bottom: 18px;
+}
+ 
+.field-group {
+    width: 100%;
+    max-width: 380px;
+    margin-bottom: 18px;
+}
+ 
+.field-row .field-group {
+    max-width: 100%;
+    margin-bottom: 0;
+}
+ 
+.field-group label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--red);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+ 
+.field-group input {
+    width: 100%;
+    padding: 13px 16px;
+    border: 1.5px solid #eee;
+    border-radius: 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    color: var(--dark);
+    background: #fafafa;
+    outline: none;
+    transition: border-color 0.2s, background 0.2s;
+}
+ 
+.field-group input:focus {
+    border-color: var(--pink);
+    background: #fff;
+}
+ 
+.field-group input::placeholder { color: #ccc; }
+ 
+/* ===== TÉRMINOS ===== */
+.terms-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    width: 100%;
+    max-width: 380px;
     margin-bottom: 24px;
-    position:relative;
-    margin-top: 0;
 }
-
-.text-regular {
+ 
+.terms-row input[type="checkbox"] {
+    margin-top: 2px;
+    accent-color: var(--red);
+    width: 16px; height: 16px;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+ 
+.terms-row label {
+    font-size: 0.82rem;
+    color: #888;
+    line-height: 1.5;
+    cursor: pointer;
+}
+ 
+.terms-row label a {
+    color: var(--red);
+    text-decoration: none;
     font-weight: 600;
 }
-
-.display-xs {
-    font-size: 1rem;
+ 
+.terms-row label a:hover { text-decoration: underline; }
+ 
+/* ===== OLVIDÉ CONTRASEÑA ===== */
+.forgot-link {
+    display: block;
+    text-align: right;
+    font-size: 0.8rem;
+    color: var(--red);
+    text-decoration: none;
+    margin-top: -8px;
+    margin-bottom: 24px;
+    max-width: 380px;
+    width: 100%;
 }
-
-.sec-prefooter .block--nenu ul li:first-child {
-    padding-top: 0;
-}
-
-.sec-prefooter .block--menu ul li {
-    margin-bottom: 8px;
-    padding-bottom: 8px;
-    padding-top: 8px;
-}
-
-.sec-prefooter .block--menu ul a {
-    color: #000;
-    font-weight: 400;
-}
-
-/*------------------------------2da Parte Prefooter------------------------------*/
-.sec-preefooter .wrapper-menu .block--menu:last-child{
-    margin-right: 0;
-}
-
-/*------------------------------Footer------------------------------*/
-.sec.sec-footer {
-    padding-bottom: 0;
-    padding-top: 0;
-}
-
-.sec-footer {
-    text-align: center;
-    color: #999;
-}
-
-.sec-footer .l-sec--footer {
-    /* border-top: 1px solid #80d0ffa2; */
-    padding-bottom: 20px;
-    padding-top: 0px;
-}
-
-/*------------------------------Redes------------------------------*/
-.block--social-media {
+ 
+.forgot-link:hover { text-decoration: underline; }
+ 
+/* ===== BOTÓN PRINCIPAL ===== */
+.btn-primary {
+    width: 100%;
+    max-width: 380px;
+    padding: 15px;
+    background: var(--red);
+    color: #000000;
+    border: none;
+    border-radius: 50px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
     margin-bottom: 20px;
 }
-
-.social_networks li {
-    display: inline-block;
+ 
+.btn-primary:hover {
+    background: #5a0101;
+    color: #ffffff;
+    transform: scale(1.01);
 }
-
-.social_networks li a.fabeook-icon {
-    background-position-y: 0;
-}
-
-.social_networks li a.instagram-icon {
-    background-position-y: -74px;
-}
-
-.social_networks li a.twitter-icon {
-    background-position-y: -148px;
-}
-
-.social_networks li a.youtube-icon {
-    background-position-y: -423px;
-}
-
-.social_networks li:last-child {
-    margin-right: 0;
-}
-
-.social_networks li a {
-    background-image: url(/resources/social_networks_v2.svg);
-    background-color: transparent;
-    background-repeat: no-repeat;
-    text-indent: -9999em;
-    background-size: 34px;
-    display: inline-block;
-    height: 34px;
+ 
+/* ===== SEPARADOR ===== */
+.or-sep {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    max-width: 380px;
     margin-bottom: 20px;
-    margin-right: 30px;
-    width: 34px;
 }
+ 
+.or-sep::before,
+.or-sep::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #eee;
+}
+ 
+.or-sep span {
+    font-size: 0.75rem;
+    color: #bbb;
+    letter-spacing: 1px;
+}
+ 
+/* ===== LINK CAMBIO DE PÁGINA ===== */
+.switch-link {
+    font-size: 0.85rem;
+    color: #888;
+}
+ 
+.switch-link a {
+    color: var(--red);
+    font-weight: 600;
+    text-decoration: none;
+}
+ 
+.switch-link a:hover { text-decoration: underline; }
+ 
+/* ===== ORDEN DE COLUMNAS ===== */
+/* signin: panel izquierda, form derecha */
+.page-signin .sign-panel     { order: 1; }
+.page-signin .sign-form-wrap { order: 2; }
+ 
+/* signup: form izquierda, panel derecha */
+.page-signup .sign-form-wrap { order: 1; }
+.page-signup .sign-panel     { order: 2; }
+ 
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .sign-wrapper { grid-template-columns: 1fr; }
+    .sign-panel, .sign-form-wrap { padding: 48px 24px; order: unset; }
+    .page-signin .sign-panel     { order: 1; }
+    .page-signin .sign-form-wrap { order: 2; }
+    .page-signup .sign-panel     { order: 1; }
+    .page-signup .sign-form-wrap { order: 2; }
+    .field-row { grid-template-columns: 1fr; }
+    }
 
-/*------------------------------Legal------------------------------*/
-ul.block-menu-legal {
-    color: #000;
-    font-size: 1rem;
-    font-weight: 300;
-    margin-bottom: 15px;
-}
 
-ul.block-menu-legal li {
-    display:inline-block;
-    margin-bottom: 10px;
-    margin-left: 15px;
-    margin-right: 15px;
+    /**********************Responsive***************/
+    /* ---- Tablet: hasta 1024px ---- */
+@media (max-width: 1024px) {
+    .sign-form-wrap { padding: 48px 32px; }
+    .sign-panel { padding: 48px 32px; }
+    .panel-title { font-size: 2rem; }
 }
-ul.block-menu-legal li a {
-    position: relative;
+ 
+/* ---- Mobile: hasta 768px ---- */
+@media (max-width: 768px) {
+    /* Ya tenías el grid a 1 columna, solo reforzamos padding y orden */
+    .sign-wrapper { grid-template-columns: 1fr; }
+ 
+    .sign-panel { padding: 40px 24px; order: unset; }
+    .sign-form-wrap { padding: 40px 24px; order: unset; }
+ 
+    /* En signin: panel arriba, form abajo */
+    .page-signin .sign-panel     { order: 1; }
+    .page-signin .sign-form-wrap { order: 2; }
+ 
+    /* En signup: panel arriba también en móvil */
+    .page-signup .sign-panel     { order: 1; }
+    .page-signup .sign-form-wrap { order: 2; }
+ 
+    .panel-title { font-size: 1.8rem; }
+    .panel-emoji { font-size: 3.5rem; margin-bottom: 16px; }
+    .panel-sub { font-size: 0.88rem; margin-bottom: 24px; }
+ 
+    .form-title { font-size: 1.5rem; }
+    .field-row { grid-template-columns: 1fr; }
+ 
+    .field-group { max-width: 100%; }
+    .btn-primary { max-width: 100%; }
+    .or-sep { max-width: 100%; }
+    .forgot-link { max-width: 100%; }
+    .terms-row { max-width: 100%; }
 }
-
-ul.block-menu-legal li a:after {
-    content: "|";
-    display: block;
-    position: absolute;
-    right: -15px;
-    top: -2px;
-    color: #000;
-}
-
-/*------------------------------Span------------------------------*/
-.sec-footer .copyright {
-    color: #000;
-    display: block;
-    font-size: .875rem;
-    font-weight: 300;
-}
-
-.sec-footer .build-id {
-    color: #000;
-    display: block;
-    font-size: .625rem;
-    font-weight: 300;
+ 
+/* ---- Mobile pequeño: hasta 480px ---- */
+@media (max-width: 480px) {
+    .sign-panel { padding: 32px 16px; }
+    .sign-form-wrap { padding: 32px 16px; }
+    .panel-title { font-size: 1.5rem; }
+    .form-title { font-size: 1.3rem; }
+    .panel-link { padding: 10px 24px; font-size: 0.78rem; }
+    .btn-primary { font-size: 0.85rem; padding: 13px; }
 }

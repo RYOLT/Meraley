@@ -777,3 +777,91 @@ ul.block-menu-legal li a:after {
         .modal-purchase-row { flex-direction: column; align-items: flex-start; }
         .modal-total { text-align: left; }
     }
+
+
+    /**************Responsive***************/
+
+    /* ---- Tablet: hasta 1024px ---- */
+@media (max-width: 1024px) {
+    .mid-menu .marca { font-size: 28px; }
+    .mid-menu .brad-slogan p:last-child { font-size: 14px; }
+    .main-menu .merme-login-register li { margin-right: 10px; }
+ 
+    .jams-section { padding: 36px 16px 60px; }
+    .jams-grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
+}
+ 
+/* ---- Mobile: hasta 768px ---- */
+@media (max-width: 768px) {
+ 
+    /* HEADER */
+    .sec-hdr .l-sec--hdr { grid-template-columns: 90px 1fr; }
+    a.logo { height: 90px; width: 90px; }
+    .main-menu {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 0;
+    }
+    .main-menu .block-menu { width: 100%; justify-content: center; }
+    .main-menu .mid-menu { display: none; }
+    .main-menu .block--main-menu li { padding-left: 10px; }
+    .main-menu .block--main-menu a { font-size: 0.75rem; }
+    .main-menu .merme-login-register {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 6px;
+    }
+    .main-menu .merme-login-register li { margin-right: 0; }
+    .button { padding: 6px 12px; font-size: 0.75rem; }
+ 
+    /* HERO */
+    .jams-hero { padding: 40px 16px 28px; }
+    .jams-hero h1 { font-size: 2rem; }
+    .jams-hero p { font-size: 0.85rem; letter-spacing: 1px; }
+ 
+    /* GRID DE PRODUCTOS */
+    .jams-section { padding: 28px 12px 50px; }
+    .jams-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 16px; }
+ 
+    .card-img { height: 160px; }
+    .card-img .img-placeholder { font-size: 3.5rem; }
+    .card-name { font-size: 1.1rem; }
+    .card-price { font-size: 1.3rem; }
+    .card-btn { padding: 7px 14px; font-size: 0.75rem; }
+    .card-body { padding: 14px 14px 16px; }
+ 
+    /* MODAL */
+    .modal-overlay { padding: 12px; }
+    .modal-box { border-radius: 16px; max-height: 95vh; }
+    .modal-img, .modal-img-placeholder { height: 200px; }
+    .modal-img-placeholder { font-size: 5rem; }
+    .modal-body { padding: 20px; }
+    .modal-title { font-size: 1.5rem; }
+    .modal-purchase-row { flex-direction: column; align-items: flex-start; }
+    .modal-total { text-align: left; }
+ 
+    /* PREFOOTER */
+    .sec-prefooter .wrapper-menu { flex-direction: column; }
+    .sec-prefooter .wrapper-menu .block--menu {
+        margin-right: 0;
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+ 
+    /* FOOTER LEGAL */
+    ul.block-menu-legal li { margin-left: 8px; margin-right: 8px; font-size: 0.8rem; }
+    .social_networks li a { margin-right: 16px; }
+}
+ 
+/* ---- Mobile pequeño: hasta 480px ---- */
+@media (max-width: 480px) {
+    .sec-hdr .l-sec--hdr { grid-template-columns: 70px 1fr; }
+    a.logo { height: 70px; width: 70px; }
+    .jams-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+    .card-img { height: 130px; }
+    .card-img .img-placeholder { font-size: 2.8rem; }
+    .card-name { font-size: 1rem; }
+    .card-body { padding: 10px 10px 12px; }
+    .card-btn { padding: 6px 10px; font-size: 0.7rem; }
+}

@@ -504,3 +504,151 @@ ul.block-menu-legal li a:after {
     font-size: .625rem;
     font-weight: 300;
 }
+
+/*******************************Responsivo******************************/
+@media (max-width: 1024px) {
+    .mid-menu .marca {
+        font-size: 28px;
+    }
+    .mid-menu .brad-slogan p:last-child {
+        font-size: 14px;
+    }
+    .main-menu .merme-login-register li {
+        margin-right: 10px;
+    }
+    .full-banner {
+        margin: 50px 0 70px 0;
+    }
+}
+ 
+/* ---- Mobile: hasta 768px ---- */
+@media (max-width: 768px) {
+ 
+    /* HEADER */
+    .sec-hdr .l-sec--hdr {
+        grid-template-columns: 90px 1fr;
+    }
+    a.logo {
+        height: 90px;
+        width: 90px;
+    }
+    .main-menu {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 0;
+    }
+    .main-menu .block-menu {
+        width: 100%;
+        justify-content: center;
+    }
+    .main-menu .mid-menu {
+        display: none;
+    }
+    .main-menu .block--main-menu li {
+        padding-left: 10px;
+    }
+    .main-menu .block--main-menu a {
+        font-size: 0.75rem;
+    }
+    .main-menu .merme-login-register {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 6px;
+    }
+    .main-menu .merme-login-register li {
+        margin-right: 0;
+    }
+    .button {
+        padding: 6px 12px;
+        font-size: 0.75rem;
+    }
+ 
+    /* BANNER DE IMÁGENES */
+    .full-banner {
+        flex-direction: column;
+        margin: 40px 16px 60px;
+        gap: 14px;
+    }
+    .full-banner .jams {
+        width: 100%;
+    }
+    .jams img {
+        height: 200px;
+    }
+ 
+    /* CARDS DE CONTENIDO */
+    .block--banner {
+        margin-bottom: 24px;
+        border-radius: 8px;
+    }
+    .block-2-column .block-content {
+        grid-template-columns: 1fr;
+    }
+    .align-right .block-image {
+        grid-column: 1;
+        grid-row: 1;
+    }
+    .block--banner .text-block .all-text {
+        max-width: 100%;
+        letter-spacing: 1px;
+    }
+    .title.x1 {
+        font-size: 1.4rem;
+    }
+    .block--banner .field-abstract {
+        font-size: 1rem;
+    }
+    .block-image img {
+        max-height: 260px;
+        width: 100%;
+        object-fit: cover;
+    }
+ 
+    /* PREFOOTER */
+    .sec-prefooter .wrapper-menu {
+        flex-direction: column;
+    }
+    .sec-prefooter .wrapper-menu .block--menu {
+        margin-right: 0;
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+ 
+    /* FOOTER LEGAL */
+    ul.block-menu-legal li {
+        margin-left: 8px;
+        margin-right: 8px;
+        font-size: 0.8rem;
+    }
+    .social_networks li a {
+        margin-right: 16px;
+    }
+}
+ 
+/* ---- Mobile pequeño: hasta 480px ---- */
+@media (max-width: 480px) {
+    .sec-hdr .l-sec--hdr {
+        grid-template-columns: 70px 1fr;
+    }
+    a.logo {
+        height: 70px;
+        width: 70px;
+    }
+    .main-menu .block--main-menu a {
+        font-size: 0.7rem;
+        letter-spacing: 0;
+    }
+    .full-banner {
+        margin: 30px 12px 40px;
+    }
+    .jams img {
+        height: 160px;
+    }
+    .title.x1 {
+        font-size: 1.2rem;
+    }
+    .block--banner .field-abstract {
+        font-size: 0.9rem;
+    }
+}

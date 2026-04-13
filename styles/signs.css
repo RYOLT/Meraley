@@ -79,6 +79,21 @@ body {
     background: rgba(255,255,255,0.15);
     border-color: #fff;
 }
+
+/*---------LOGO---------*/
+a.logo img {
+    /* background-image: url(/resources/logo2.png); */
+    background-color: #00000000;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    text-indent: -9999em;
+    background-size: cover;
+    display: block;
+    height: 130px;
+    width: 130px;
+}
+
+
  
 /* ===== FORMULARIO ===== */
 .sign-form-wrap {

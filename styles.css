@@ -183,7 +183,7 @@ ul {
     border: 1px solid;
 }
 
-.main-menu .merme-login-register a.menu-register {
+/* .main-menu .merme-login-register a.menu-register {
     background-color: #ffffff;
     color: #000000;
 }
@@ -196,7 +196,7 @@ ul {
 .merme-login-register a.menu-register:hover {
     background-color: #000;
     color: #fff;
-}
+} */
 
 /*-----------------------------Boton de inicio de sesion-------------------------------*/
 .button {
@@ -633,7 +633,7 @@ ul.block-menu-legal li a:after {
     .sec-hdr .l-sec--hdr {
         grid-template-columns: 70px 1fr;
     }
-    a.logo {
+    a.logo img {
         height: 70px;
         width: 70px;
     }

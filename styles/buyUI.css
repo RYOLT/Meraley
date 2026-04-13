@@ -857,7 +857,7 @@ ul.block-menu-legal li a:after {
 /* ---- Mobile pequeño: hasta 480px ---- */
 @media (max-width: 480px) {
     .sec-hdr .l-sec--hdr { grid-template-columns: 70px 1fr; }
-    a.logo { height: 70px; width: 70px; }
+    a.logo img { height: 70px; width: 70px; }
     .jams-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
     .card-img { height: 130px; }
     .card-img .img-placeholder { font-size: 2.8rem; }

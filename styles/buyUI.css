@@ -320,7 +320,7 @@ footer {
 }
 
 .social_networks li a {
-    background-image: url(resources/social_networks_v2.svg);
+    background-image: url(/resources/social_networks_v2.svg);
     background-color: transparent;
     background-repeat: no-repeat;
     text-indent: -9999em;

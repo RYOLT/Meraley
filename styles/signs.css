@@ -82,7 +82,7 @@ body {
 
 /*---------LOGO---------*/
 a.logo img {
-    /* background-image: url(/logo2.png); */
+    background-image: url(/logo2.png);
     background-color: #00000000;
     background-repeat: no-repeat;
     background-position: 0 0;
@@ -91,16 +91,23 @@ a.logo img {
     display: block;
     height: 130px;
     width: 130px;
+    position: relative;
+    left: 15px;
 }
 
 @media (max-width: 768px) {
-    a.logo img { height: 90px; width: 90px; }
+    a.logo img { 
+        height: 90px; 
+        width: 90px; 
+        left: 35px;
     }
+}
 
 @media (max-width: 480px) {
     a.logo img {
         height: 70px;
         width: 70px;
+        left: 25px;
     }
 }
 

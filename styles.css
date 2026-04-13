@@ -528,7 +528,7 @@ ul.block-menu-legal li a:after {
     .sec-hdr .l-sec--hdr {
         grid-template-columns: 90px 1fr;
     }
-    a.logo {
+    a.logo img {
         height: 90px;
         width: 90px;
     }

@@ -185,7 +185,7 @@ ul {
     border: 1px solid;
 }
 
-.main-menu .merme-login-register a.menu-register {
+/* .main-menu .merme-login-register a.menu-register {
     background-color: #ffffff;
     color: #000000;
 }
@@ -198,7 +198,7 @@ ul {
 .merme-login-register a.menu-register:hover {
     background-color: #000;
     color: #fff;
-}
+} */
 
 /*-----------------------------Boton de inicio de sesion-------------------------------*/
 .button {

@@ -105,63 +105,43 @@ Ratón
     const products = [
         {
             id: 1,
-            name: "Mermelada de Fresa",
-            flavor: "Fresa",
+            name: "Mermelada de Kiwi",
+            flavor: "Kiwi",
             price: 85,
             stock: 24,
             emoji: "",
-            img: '/resources/fresa.png',
+            img: '/resources/kiwi.png',
             desc: "Elaborada con fresas frescas seleccionadas a mano. Su sabor intenso y natural la convierte en la preferida de nuestros clientes. Perfecta para pan tostado, crepes o yogurt.",
         },
         {
             id: 2,
-            name: "Mermelada de Uva",
-            flavor: "Uva",
+            name: "Mermelada de Mango",
+            flavor: "Mango",
             price: 90,
             stock: 3,
             emoji: "",
-            img: '/resources/uva.png',
+            img: '/resources/mango.png',
             desc: "La mermelada que lo tiene todo: dulce con un toque picante que sorprende. Ideal para acompañar quesos, carnes o galletas saladas. ¡Atrévete a probarla!",
         },
         {
             id: 3,
-            name: "Mermelada de Mango",
-            flavor: "Mango",
-            price: 85,
-            stock: 15,
-            emoji: "",
-            img: null,
-            desc: "El sabor tropical del mango capturado en un frasco. Suave, dulce y aromática. Combina perfectamente con pan de baguette y mantequilla.",
-        },
-        {
-            id: 4,
-            name: "Mermelada de Zarzamora",
-            flavor: "Zarzamora",
+            name: "Mermelada de Uva morada",
+            flavor: "Uva",
             price: 88,
             stock: 0,
             emoji: "",
-            img: null,
+            img: '/resources/uva.png',
             desc: "Un sabor oscuro y profundo con notas ligeramente ácidas. Elaborada con zarzamoras silvestres. Excelente para postres o simplemente en una tostada.",
         },
         {
-            id: 5,
-            name: "Mermelada de Durazno",
-            flavor: "Durazno",
-            price: 82,
-            stock: 10,
+            id: 4,
+            name: "Mermelada de Sandia",
+            flavor: "Sandia",
+            price: 88,
+            stock: 0,
             emoji: "",
-            img: null,
-            desc: "Suave, dorada y aromática. Nuestra mermelada de durazno es pura nostalgia en cada cucharada. Perfecta para hot cakes o como relleno de pays.",
-        },
-        {
-            id: 6,
-            name: "Mermelada de Tamarindo",
-            flavor: "Tamarindo",
-            price: 92,
-            stock: 7,
-            emoji: "",
-            img: null,
-            desc: "Sabor agridulce único e inconfundible. Esta mermelada artesanal de tamarindo es para los paladares aventureros. Ideal con quesos frescos y totopos.",
+            img: '/resources/sandia.png',
+            desc: "Un sabor oscuro y profundo con notas ligeramente ácidas. Elaborada con zarzamoras silvestres. Excelente para postres o simplemente en una tostada.",
         },
     ];
  
@@ -182,7 +162,7 @@ Ratón
             <div class="product-card" data-id="${p.id}">
                 <div class="card-img">
                     ${imgHTML}
-                    <span class="card-badge">120g</span>
+                    <span class="card-badge">150ml</span>
                 </div>
                 <div class="card-body">
                     <div class="card-weight">Sabor · ${p.flavor}</div>

@@ -30,13 +30,6 @@ body {
 }
  
  
-.panel-emoji {
-    font-size: 4.5rem;
-    margin-bottom: 24px;
-    position: relative;
-    z-index: 1;
-}
- 
 .panel-title {
     font-family: 'Playfair Display', serif;
     font-size: 2.4rem;
@@ -373,7 +366,6 @@ a.logo img {
     .page-signup .sign-form-wrap { order: 2; }
  
     .panel-title { font-size: 1.8rem; }
-    .panel-emoji { font-size: 3.5rem; margin-bottom: 16px; }
     .panel-sub { font-size: 0.88rem; margin-bottom: 24px; }
  
     .form-title { font-size: 1.5rem; }

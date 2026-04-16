@@ -150,7 +150,7 @@ ul {
   position: absolute;
   top: 100%;
   left: 0;
-  background: #ff8080a2;
+  background: #fd9c9ce3;
   border-radius: 10px;
   box-shadow: 0 8px 32px rgba(116,2,2,0.13);
   min-width: 200px;
@@ -185,7 +185,7 @@ ul {
 }
 .drop-link:hover,
 .drop-parent:hover {
-  background: #ff8080a2;
+  background: #fd9c9ce3;
   color: #ffffff;
 }
 .drop-parent::after { 
@@ -198,7 +198,7 @@ ul {
   position: absolute;
   top: 0;
   left: 100%;
-  background: #ff8080a2;
+  background: #fd9c9ce3;
   border-radius: 10px;
   box-shadow: 0 8px 32px rgba(116,2,2,0.13);
   min-width: 160px;

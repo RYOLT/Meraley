@@ -16,12 +16,6 @@ function animateCSS(element, animation, duration = '1s') {
   });
 }
 
-//Se reutiliza esta parte del del codigo para animaciones
-// const element = document.querySelector('.block--main-menu ul li a');
-// element.addEventListener('mouseenter', () => {
-//   animateCSS(element, 'pulse', '2s');
-// });
-
 //Se reutiliza
 //Si quiero usar varias etiquetas debo de usar 'querySelectorAll con forEach'
 
@@ -35,80 +29,49 @@ elements.forEach((element) => {
 
 console.log(elements)
 
-// 🖱️ Eventos de Ratón y Teclado
-// Estos eventos responden a la interacción directa del usuario con el dispositivo de entrada.
+
+
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    
+    authDomain: "merme-db.firebaseapp.com",
+    projectId: "merme-db",
+    storageBucket: "merme-db.firebasestorage.app",
+    messagingSenderId: "667177586343",
+    appId: "1:667177586343:web:031089153e2233598dd582",
+    measurementId: "G-0P6FFGBM6J"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+
+
+
+
+
+
+
+
+
+
+
 /*
-Ratón: Incluyen
-click (clic izquierdo)
-dblclick (doble clic)
-mousedown/mouseup (presionar/soltar botón)
-mousemove (movimiento continuo)
-mouseover/mouseout (entrar/salir del área de un elemento)
-mouseenter/mouseleave (entrar/salir del elemento y sus hijos)
-contextmenu (clic derecho).
-Teclado: Cubren keydown (presionar tecla)
-keypress (momento de pulsación)
-keyup (soltar tecla)
- */
-/*---------------------------------------------------------------------------------------------------------*/
-// 📝 Eventos de Formulario, Carga y Ventana
-// Gestionan la interacción con datos, la carga de recursos y cambios en la ventana del navegador.
-
-// Formulario: submit (envío)
-// reset (restablecimiento)
-// change (cambio de valor)
-// focus (obtención de foco)
-// blur (pérdida de foco).
-// Carga y Ventana: load (carga completa de página o recurso), DOMContentLoaded (carga del HTML), unload (abandono de página), resize (cambio de tamaño de ventana) y scroll (desplazamiento).
-// Red: online y offline indican el estado de la conexión a internet.
-/*---------------------------------------------------------------------------------------------------------*/
-// 📺 Eventos de Medios y Otros
-// Se activan durante la reproducción de audio/video o cambios específicos en el entorno.
-
-// Medios: play, pause, ended (fin de reproducción), canplay, loadeddata y timeupdate.
-// Otros: Incluyen eventos de animación (animationstart, animationend), batería (chargingchange), impresión (beforeprint, afterprint) y DOM (DOMSubtreeModified, aunque estos últimos han sido en gran parte reemplazados por MutationObserver).
-
-/* Categoría	Eventos Principales	Descripción Breve
-Ratón
-    click, dblclick, mouseover, mousemove	Interacción con cursor y clics.
-    Teclado	keydown, keypress, keyup	Presión y liberación de teclas.
-    Formulario
-    submit, change, focus, blur	Envío, modificación y enfoque de inputs.
-    Ventana/Documento
-    load, resize, scroll, unload	Carga, tamaño, desplazamiento y cierre.
-    Medios
-    play, pause, ended, canplay	Control de reproducción de audio/video.
-    Red
-    online, offline	Estado de conexión a internet.
-
 */
-
-// //how creates an animation
-// const element = document.querySelector('.hola2');
-// element.addEventListener('click', () => {
-//   //Add a class to the element with the name of the animation
-//   element.classList.add('animate__animated', 'animate__heartBeat');
-
-//   //Obliga a reiniciar la animación
-//   void element.offsetWidth;
-
-//   element.classList.add('animate__animated', 'animate__heartBeat');
-//   //Assing a property to the element
-//   element.style.setProperty('--animate-duration', '1s');
-// });
-// //Detect when an animation ends
-// element.addEventListener('animationend', () => {
-//   element.classList.remove('animate__animated', 'animate__heartBeat');
-// });
-
-
     const products = [
         {
             id: 1,
             name: "Mermelada de Kiwi",
             flavor: "Kiwi",
             price: 85,
-            stock: 24,
+            stock: 6,
             emoji: "",
             img: '/resources/kiwi.png',
             desc: "Elaborada con fresas frescas seleccionadas a mano. Su sabor intenso y natural la convierte en la preferida de nuestros clientes. Perfecta para pan tostado, crepes o yogurt.",
@@ -118,29 +81,29 @@ Ratón
             name: "Mermelada de Mango",
             flavor: "Mango",
             price: 90,
-            stock: 3,
+            stock: 6,
             emoji: "",
             img: '/resources/mango.png',
             desc: "La mermelada que lo tiene todo: dulce con un toque picante que sorprende. Ideal para acompañar quesos, carnes o galletas saladas. ¡Atrévete a probarla!",
         },
         {
             id: 3,
-            name: "Mermelada de Uva morada",
-            flavor: "Uva",
+            name: "Mermelada de Piña",
+            flavor: "Piña",
             price: 88,
-            stock: 0,
+            stock: 6,
             emoji: "",
-            img: '/resources/uva.png',
+            img: '/resources/piña.png',
             desc: "Un sabor oscuro y profundo con notas ligeramente ácidas. Elaborada con zarzamoras silvestres. Excelente para postres o simplemente en una tostada.",
         },
         {
             id: 4,
-            name: "Mermelada de Sandia",
-            flavor: "Sandia",
+            name: "Mermelada de Tamarindo",
+            flavor: "Tamarindo",
             price: 88,
-            stock: 0,
+            stock: 6,
             emoji: "",
-            img: '/resources/sandia.png',
+            img: '/resources/tamarindo.png',
             desc: "Un sabor oscuro y profundo con notas ligeramente ácidas. Elaborada con zarzamoras silvestres. Excelente para postres o simplemente en una tostada.",
         },
     ];

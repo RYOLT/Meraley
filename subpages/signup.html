@@ -1,68 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrarse</title>
+    <title>Crear cuenta — MERALEY</title>
     <link rel="icon" href="/icons/logo2.ico" type="image/x-icon">
     <link rel="stylesheet" href="/styles/signs.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="page-signup">
 
     <div class="sign-wrapper">
- 
+
         <!-- Formulario izquierdo -->
         <div class="sign-form-wrap">
             <div class="form-logo">
                 <a href="/index.html" class="logo">
                     <img src="/logo2.png" alt="Meraley">
                 </a>
-                <span class="brand-name">MERALEY</span>
+                <span class="brand-name"><a href="/index.html">MERALEY</a></span>
             </div>
- 
+
             <h1 class="form-title">Crea tu cuenta</h1>
             <p class="form-subtitle">Empieza a disfrutar nuestras mermeladas</p>
- 
+
+            <!-- Mensaje de error/éxito -->
+            <div id="auth-msg" class="auth-msg" style="display:none"></div>
+
             <div class="field-row">
                 <div class="field-group">
                     <label for="nombre">Nombre</label>
-                    <input type="text" id="nombre" placeholder="Ana" required>
+                    <input type="text" id="nombre" placeholder="Ana" required autocomplete="given-name">
                 </div>
                 <div class="field-group">
                     <label for="apellido">Apellido</label>
-                    <input type="text" id="apellido" placeholder="García" required>
+                    <input type="text" id="apellido" placeholder="García" required autocomplete="family-name">
                 </div>
             </div>
- 
+
             <div class="field-group">
                 <label for="email">Correo electrónico</label>
-                <input type="email" id="email" placeholder="tu@correo.com" required>
+                <input type="email" id="email" placeholder="tu@correo.com" required autocomplete="email">
             </div>
- 
+
             <div class="field-group">
                 <label for="password">Contraseña</label>
-                <input type="password" id="password" placeholder="Mínimo 8 caracteres" required>
+                <input type="password" id="password" placeholder="Mínimo 8 caracteres" required autocomplete="new-password">
+                <div id="pass-strength" class="pass-strength"></div>
             </div>
- 
+
             <div class="field-group">
                 <label for="confirm">Confirmar contraseña</label>
-                <input type="password" id="confirm" placeholder="Repite tu contraseña" required>
+                <input type="password" id="confirm" placeholder="Repite tu contraseña" required autocomplete="new-password">
             </div>
- 
+
             <div class="terms-row">
                 <input type="checkbox" id="terms">
                 <label for="terms">
                     Acepto los <a href="#">Términos y condiciones</a> y el <a href="#">Aviso de privacidad</a> de MERALEY.
                 </label>
             </div>
- 
-            <button class="btn-primary">Crear cuenta</button>
- 
+
+            <button class="btn-primary" id="signup-btn">Crear cuenta</button>
+
             <div class="or-sep"><span>O</span></div>
- 
+
             <p class="switch-link">¿Ya tienes cuenta? <a href="signin.html">Inicia sesión</a></p>
         </div>
- 
+
         <!-- Panel decorativo derecho -->
         <div class="sign-panel">
             <h2 class="panel-title">¡Ya tienes cuenta!</h2>
@@ -70,5 +75,130 @@
             <a href="signin.html" class="panel-link">Iniciar sesión</a>
         </div>
     </div>
+
+<style>
+.auth-msg {
+  width: 100%;
+  max-width: 380px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  margin-bottom: 16px;
+  text-align: center;
+}
+.auth-msg.error   { background: #ffeaea; color: #cc0000; border: 1px solid #ffcccc; }
+.auth-msg.success { background: #e8f8ee; color: #1a7a3a; border: 1px solid #b2e4c5; }
+.btn-primary:disabled { background: #ccc; cursor: not-allowed; transform: none; }
+
+/* Indicador de fortaleza de contraseña */
+.pass-strength {
+  margin-top: 6px;
+  height: 4px;
+  border-radius: 4px;
+  background: #eee;
+  transition: background 0.3s, width 0.3s;
+}
+.pass-strength.weak   { background: #cc0000; width: 33%; }
+.pass-strength.medium { background: #e07b00; width: 66%; }
+.pass-strength.strong { background: #1a7a3a; width: 100%; }
+</style>
+
+<script type="module">
+import {
+  auth, db,
+  createUserWithEmailAndPassword,
+  updateProfile,
+  onAuthStateChanged,
+  doc, setDoc, serverTimestamp
+} from "/firebase.js";
+
+// No redirigir automáticamente al cargar (evita loops)
+
+const btn  = document.getElementById("signup-btn");
+const msg  = document.getElementById("auth-msg");
+
+function showMsg(text, type = "error") {
+  msg.textContent = text;
+  msg.className   = `auth-msg ${type}`;
+  msg.style.display = "block";
+}
+
+// Indicador de fortaleza de contraseña
+document.getElementById("password").addEventListener("input", (e) => {
+  const val = e.target.value;
+  const bar = document.getElementById("pass-strength");
+  if (!val) { bar.className = "pass-strength"; return; }
+  if (val.length < 6) { bar.className = "pass-strength weak"; return; }
+  const hasUpper   = /[A-Z]/.test(val);
+  const hasNumber  = /[0-9]/.test(val);
+  const hasSpecial = /[^A-Za-z0-9]/.test(val);
+  const score = [val.length >= 8, hasUpper, hasNumber, hasSpecial].filter(Boolean).length;
+  bar.className = "pass-strength " + (score <= 1 ? "weak" : score <= 2 ? "medium" : "strong");
+});
+
+const ERROR_MESSAGES = {
+  "auth/email-already-in-use":  "Ya existe una cuenta con ese correo.",
+  "auth/invalid-email":         "El correo no tiene un formato válido.",
+  "auth/weak-password":         "La contraseña debe tener al menos 6 caracteres.",
+  "auth/network-request-failed":"Error de red. Revisa tu conexión."
+};
+
+btn.addEventListener("click", async () => {
+  const nombre   = document.getElementById("nombre").value.trim();
+  const apellido = document.getElementById("apellido").value.trim();
+  const email    = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value;
+  const confirm  = document.getElementById("confirm").value;
+  const terms    = document.getElementById("terms").checked;
+
+  // Validaciones
+  if (!nombre || !apellido || !email || !password || !confirm) {
+    showMsg("Por favor llena todos los campos."); return;
+  }
+  if (password.length < 8) {
+    showMsg("La contraseña debe tener al menos 8 caracteres."); return;
+  }
+  if (password !== confirm) {
+    showMsg("Las contraseñas no coinciden."); return;
+  }
+  if (!terms) {
+    showMsg("Debes aceptar los términos y condiciones."); return;
+  }
+
+  btn.disabled    = true;
+  btn.textContent = "Creando cuenta…";
+  msg.style.display = "none";
+
+  try {
+    // 1. Crear usuario en Firebase Auth
+    const { user } = await createUserWithEmailAndPassword(auth, email, password);
+
+    // 2. Guardar displayName
+    await updateProfile(user, { displayName: `${nombre} ${apellido}` });
+
+    // 3. Crear documento en Firestore → colección "users"
+    await setDoc(doc(db, "users", user.uid), {
+      uid:       user.uid,
+      nombre,
+      apellido,
+      email,
+      role:      "customer",   // "customer" | "admin"
+      createdAt: serverTimestamp(),
+      addresses: [],           // Para envíos futuros
+      orderIds:  []            // Historial de pedidos
+    });
+
+    showMsg("¡Cuenta creada! Redirigiendo…", "success");
+    setTimeout(() => window.location.href = "/index.html", 1000);
+
+  } catch (err) {
+    btn.disabled    = false;
+    btn.textContent = "Crear cuenta";
+    showMsg(ERROR_MESSAGES[err.code] || "Ocurrió un error. Intenta de nuevo.");
+    console.error(err.code);
+  }
+});
+</script>
 </body>
 </html>

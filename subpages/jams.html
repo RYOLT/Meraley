@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MERMELADAS</title>
+    <title>MERMELADAS — MERALEY</title>
     <link rel="icon" href="/icons/logo2.ico" type="image/x-icon">
     <link rel="stylesheet" href="/styles/buyUI.css">
+    <link rel="stylesheet" href="/styles/cart.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 </head>
 <body>
-        <header class="sec sec-hdr">
+
+    <header class="sec sec-hdr">
         <div class="container">
             <div class="l-sec l-sec--hdr">
                 <div class="block-brand">
@@ -24,23 +26,17 @@
                                 <li class="nav-item">
                                     <a href="#" class="opt1 menu-item nav-trigger">Menú</a>
                                     <div class="dropdown">
-
                                         <div class="drop-item">
-                                          <span class="drop-parent">Sabores</span>
-                                          <div class="sub-dropdown">
-                                            <a href="/subpages/jams.html?producto=1" class="drop-link">Kiwi</a>
-                                            <a href="/subpages/jams.html?producto=2" class="drop-link">Mango</a>
-                                            <a href="/subpages/jams.html?producto=3" class="drop-link">Uva</a>
-                                            <a href="/subpages/jams.html?producto=4" class="drop-link">Sandía</a>
-                                          </div>
+                                            <span class="drop-parent">Sabores</span>
+                                            <div class="sub-dropdown" id="nav-flavors">
+                                                <!-- Se llena dinámicamente desde Firestore -->
+                                            </div>
                                         </div>
-
                                         <div class="drop-divider"></div>
-
-                                        <a href="metodos-pago.html" class="drop-link">Métodos de pago</a>
-                                        <a href="metodos-envio.html" class="drop-link">Método de envío</a>
-                                        <a href="produccion.html" class="drop-link">Cómo la producimos</a>
-                                  </div>
+                                        <a href="/subpages/paymethod.html" class="drop-link">Métodos de pago</a>
+                                        <a href="/subpages/sendmethod.html" class="drop-link">Método de envío</a>
+                                        <a href="/subpages/produccion.html" class="drop-link">Cómo la producimos</a>
+                                    </div>
                                 </li>
                             </ul>
                         </div>
@@ -65,20 +61,25 @@
                         </ul>
                     </div>
                 </div>
-            </div>    
+            </div>
         </div>
     </header>
-    <!-- menu>como la producimos, promociones, sobre nosotros, mermelada --->
 
     <section class="jams-hero">
         <div class="tag">Mermeladas 2026</div>
         <h1>Nuestras Mermeladas</h1>
     </section>
- 
+
     <section class="jams-section">
-        <div class="jams-grid" id="products-grid"></div>
+        <div class="jams-grid" id="products-grid">
+            <!-- Skeleton loader -->
+            <div class="product-card skeleton"></div>
+            <div class="product-card skeleton"></div>
+            <div class="product-card skeleton"></div>
+            <div class="product-card skeleton"></div>
+        </div>
     </section>
- 
+
     <!-- MODAL -->
     <div class="modal-overlay" id="modal-overlay">
         <div class="modal-box" id="modal-box">
@@ -106,44 +107,31 @@
             </div>
         </div>
     </div>
-<!-- FOOTER -->
-         <footer class="sec sec-prefooter"> 
+
+    <!-- FOOTER -->
+    <footer class="sec sec-prefooter">
         <div class="container">
             <div class="l-sec l-sec--prefooter">
                 <div class="wrapper-menu">
                     <div class="block--menu block-menu-about">
                         <div class="abtwe">
-                            <div class="abt__head">
-                                <h3 class="display-sm text-regular">Sobre Nosotros</h3>
-                            </div>
+                            <div class="abt__head"><h3 class="display-sm text-regular">Sobre Nosotros</h3></div>
                             <div class="abt-body">
                                 <ul class="display-xs">
-                                    <li>
-                                        <a href="#">Como trabajamos</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Nuestra Historia</a>
-                                    </li>
+                                    <li><a href="#">Como trabajamos</a></li>
+                                    <li><a href="#">Nuestra Historia</a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                     <div class="block--menu block-menu-about">
                         <div class="abtwe">
-                            <div class="abt__head">
-                                <h3 class="display-sn text-regular">Atención al cliente</h3>
-                            </div>
+                            <div class="abt__head"><h3 class="display-sn text-regular">Atención al cliente</h3></div>
                             <div class="abt-body">
                                 <ul class="display-xs">
-                                    <li>
-                                        <a href="#">Contáctanos</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Preguntas Frecuentes</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Formas de Comprar</a>
-                                    </li>
+                                    <li><a href="#">Contáctanos</a></li>
+                                    <li><a href="#">Preguntas Frecuentes</a></li>
+                                    <li><a href="#">Formas de Comprar</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -157,50 +145,203 @@
             <div class="l-sec l-sec--footer">
                 <div class="block--social-media">
                     <ul class="social_networks">
-                        <li>
-                            <a class="facebook-icon" href="#" targe="_blank">Facebook</a>
-                        </li>
-                        <li>
-                            <a class="instagram-icon" href="#" targe="_blank">Instagram</a>
-                        </li>
-                        <li>
-                            <a class="twitter-icon" href="#" targe="_blank">Twitter</a>
-                        </li>
-                        <li>
-                            <a class="youtube-icon" href="#" targe="_blank">YouTube</a>
-                        </li>
+                        <li><a class="facebook-icon" href="#" target="_blank">Facebook</a></li>
+                        <li><a class="instagram-icon" href="#" target="_blank">Instagram</a></li>
+                        <li><a class="twitter-icon" href="#" target="_blank">Twitter</a></li>
+                        <li><a class="youtube-icon" href="#" target="_blank">YouTube</a></li>
                     </ul>
                 </div>
                 <ul class="block-menu block-menu-legal">
-                    <li>
-                        <a class=" menu-item" target href="#">Accesibilidad Web</a>
-                    </li>
-                    <li>
-                        <a class=" menu-item" href="#">Aviso de Privacidad</a>
-                    </li>
-                    <li>
-                        <a class=" menu-item" href="#">Boletines</a>
-                    </li>
-                    <li>
-                        <a class=" menu-item" href="#">Condiciones de uso</a>
-                    </li>
-                    <li>
-                        <a class=" menu-item" href="#">Mapa del sitio</a>
-                    </li>
-                    <li>
-                        <a class=" menu-item" href="#">Preferencias sobre cookies</a>
-                    </li>
+                    <li><a href="#">Accesibilidad Web</a></li>
+                    <li><a href="#">Aviso de Privacidad</a></li>
+                    <li><a href="#">Boletines</a></li>
+                    <li><a href="#">Condiciones de uso</a></li>
+                    <li><a href="#">Mapa del sitio</a></li>
+                    <li><a href="#">Preferencias sobre cookies</a></li>
                 </ul>
-                <span class="copyright display-xxsmall">
-                    &copy; 2026 Meraley Jam Company. Reservados todos los derechos
-                
-                </span>
-                <span class="build-id display-xxsmall">mx | prod | b3d3e13c63662e161abbb818fa8f4625e24d7ba1 | 31/03/2026-06:08:38:579 </span>
+                <span class="copyright display-xxsmall">&copy; 2026 Meraley Jam Company. Reservados todos los derechos</span>
+                <span class="build-id display-xxsmall">mx | prod | b3d3e13c63662e161abbb818fa8f4625e24d7ba1 | 31/03/2026-06:08:38:579</span>
             </div>
         </div>
     </footer>
 
-</body>
+<script type="module">
+import {
+  auth, db, onAuthStateChanged, signOut,
+  collection, getDocs, doc, getDoc
+} from "/firebase.js";
+import { initCart, addToCart } from "/cart.js";
 
-<script type="module" src="/script.js"></script>
+// ─── AUTH HEADER ─────────────────────────────────────────────
+onAuthStateChanged(auth, (user) => {
+  const loginBtn    = document.querySelector('.menu-login');
+  const registerBtn = document.querySelector('.menu-register');
+  if (user && loginBtn && registerBtn) {
+    loginBtn.textContent = user.displayName
+      ? `Hola, ${user.displayName.split(' ')[0]}`
+      : "Mi cuenta";
+    loginBtn.href = "#";
+    registerBtn.textContent = "Salir";
+    registerBtn.href = "#";
+    registerBtn.addEventListener('click', async (e) => {
+      e.preventDefault();
+      await signOut(auth);
+      location.reload();
+    });
+  }
+});
+
+// ─── INIT CARRITO ────────────────────────────────────────────
+initCart();
+
+// ─── LOAD PRODUCTS FROM FIRESTORE ────────────────────────────
+let products = [];
+
+async function loadProducts() {
+  const grid = document.getElementById("products-grid");
+  try {
+    const snap = await getDocs(collection(db, "products"));
+    products = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+
+    // Llenar submenú de sabores dinámicamente
+    const navFlavors = document.getElementById("nav-flavors");
+    if (navFlavors) {
+      navFlavors.innerHTML = products.map(p =>
+        `<a href="/subpages/jams.html?producto=${p.id}" class="drop-link">${p.flavor}</a>`
+      ).join("");
+    }
+
+    renderCards();
+
+    // Abrir modal por URL param
+    const params = new URLSearchParams(window.location.search);
+    const productoId = params.get("producto");
+    if (productoId) {
+      const product = products.find(p => p.id === productoId);
+      if (product) openModal(product);
+    }
+  } catch (err) {
+    console.error("Error cargando productos:", err);
+    grid.innerHTML = `<p style="color:#cc0000;padding:20px">Error al cargar los productos. Intenta de nuevo.</p>`;
+  }
+}
+
+function getStockInfo(stock) {
+  if (stock === 0) return { text: "Agotado", cls: "out" };
+  if (stock <= 5)  return { text: `¡Solo ${stock} disponibles!`, cls: "low" };
+  return { text: `${stock} disponibles`, cls: "" };
+}
+
+function renderCards() {
+  const grid = document.getElementById("products-grid");
+  grid.innerHTML = products.map(p => {
+    const s = getStockInfo(p.stock);
+    const imgHTML = p.img
+      ? `<img src="${p.img}" alt="${p.name}">`
+      : `<div class="img-placeholder">🫙</div>`;
+    return `
+      <div class="product-card" data-id="${p.id}">
+        <div class="card-img">
+          ${imgHTML}
+          <span class="card-badge">120g</span>
+        </div>
+        <div class="card-body">
+          <div class="card-weight">Sabor · ${p.flavor}</div>
+          <h3 class="card-name">${p.name}</h3>
+          <p class="card-desc">${(p.desc || "").slice(0, 72)}…</p>
+          <div class="card-footer-row">
+            <div class="card-price"><span>$</span>${p.price}</div>
+            <button class="card-btn" ${p.stock === 0 ? "disabled" : ""}>
+              ${p.stock === 0 ? "Agotado" : "Ver más"}
+            </button>
+          </div>
+          <div class="card-stock ${s.cls}">${s.text}</div>
+        </div>
+      </div>`;
+  }).join("");
+
+  document.querySelectorAll(".product-card").forEach(card => {
+    card.addEventListener("click", () => {
+      const product = products.find(p => p.id === card.dataset.id);
+      if (product) openModal(product);
+    });
+  });
+}
+
+// ─── MODAL ───────────────────────────────────────────────────
+let currentProduct = null;
+let currentQty = 1;
+
+function openModal(product) {
+  currentProduct = product;
+  currentQty = product.stock > 0 ? 1 : 0;
+
+  const imgArea = document.getElementById("modal-img-area");
+  imgArea.innerHTML = product.img
+    ? `<img class="modal-img" src="${product.img}" alt="${product.name}">`
+    : `<div class="modal-img-placeholder">🫙</div>`;
+
+  document.getElementById("modal-tag").textContent   = `Sabor · ${product.flavor}`;
+  document.getElementById("modal-title").textContent = product.name;
+  document.getElementById("modal-desc").textContent  = product.desc || "";
+
+  const badge = document.getElementById("modal-stock-badge");
+  if (product.stock === 0) {
+    badge.className = "modal-stock-badge out-stock";
+    badge.textContent = "Sin stock — Agotado";
+  } else if (product.stock <= 5) {
+    badge.className = "modal-stock-badge low-stock";
+    badge.textContent = `¡Últimas ${product.stock} piezas disponibles!`;
+  } else {
+    badge.className = "modal-stock-badge in-stock";
+    badge.textContent = `En stock — ${product.stock} disponibles`;
+  }
+
+  const buyBtn = document.getElementById("modal-buy-btn");
+  buyBtn.disabled    = product.stock === 0;
+  buyBtn.textContent = product.stock === 0 ? "Sin stock" : "Agregar al carrito";
+
+  updateModalQty();
+  document.getElementById("modal-overlay").classList.add("active");
+  document.body.style.overflow = "hidden";
+}
+
+function updateModalQty() {
+  document.getElementById("qty-label").textContent = currentQty;
+  const total = currentProduct ? currentProduct.price * currentQty : 0;
+  document.getElementById("modal-total-price").textContent = `$${total}`;
+  document.getElementById("qty-minus").disabled = currentQty <= 1;
+  document.getElementById("qty-plus").disabled  = currentQty >= (currentProduct?.stock ?? 0);
+}
+
+function closeModal() {
+  document.getElementById("modal-overlay").classList.remove("active");
+  document.body.style.overflow = "";
+  currentProduct = null;
+  currentQty = 1;
+}
+
+document.getElementById("modal-close").addEventListener("click", closeModal);
+document.getElementById("modal-overlay").addEventListener("click", e => {
+  if (e.target === document.getElementById("modal-overlay")) closeModal();
+});
+document.getElementById("qty-minus").addEventListener("click", () => {
+  if (currentQty > 1) { currentQty--; updateModalQty(); }
+});
+document.getElementById("qty-plus").addEventListener("click", () => {
+  if (currentQty < currentProduct.stock) { currentQty++; updateModalQty(); }
+});
+document.getElementById("modal-buy-btn").addEventListener("click", () => {
+  if (!currentProduct || currentProduct.stock === 0) return;
+  addToCart(currentProduct, currentQty);
+  closeModal();
+});
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") closeModal();
+});
+
+// ─── START ────────────────────────────────────────────────────
+loadProducts();
+</script>
+</body>
 </html>

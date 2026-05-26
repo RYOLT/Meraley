@@ -30,83 +30,144 @@ elements.forEach((element) => {
 console.log(elements)
 
 
+// // Import the functions you need from the SDKs you need
+// import { initializeApp } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
+// import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-analytics.js";
+// // TODO: Add SDKs for Firebase products that you want to use
+// // https://firebase.google.com/docs/web/setup#available-libraries
 
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
+// // Your web app's Firebase configuration
+// // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// const firebaseConfig = {
     
-    authDomain: "merme-db.firebaseapp.com",
-    projectId: "merme-db",
-    storageBucket: "merme-db.firebasestorage.app",
-    messagingSenderId: "667177586343",
-    appId: "1:667177586343:web:031089153e2233598dd582",
-    measurementId: "G-0P6FFGBM6J"
-  };
+//     authDomain: "merme-db.firebaseapp.com",
+//     projectId: "merme-db",
+//     storageBucket: "merme-db.firebasestorage.app",
+//     messagingSenderId: "667177586343",
+//     appId: "1:667177586343:web:031089153e2233598dd582",
+//     measurementId: "G-0P6FFGBM6J"
+// };
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
+// // Initialize Firebase
+// const app = initializeApp(firebaseConfig);
+// const analytics = getAnalytics(app);
 
-
-
-
-
-
-
-
-
+import {
+  auth, db, onAuthStateChanged, signOut,
+  collection, getDocs
+} from "./firebase.js";
+import { initCart } from "./cart.js";
+ 
+// ─── ANIMACIONES ─────────────────────────────────────────────
+function animateCSS(element, animation, duration = '1s') {
+  return new Promise((resolve) => {
+    const animationName = `animate__${animation}`;
+    element.classList.add('animate__animated', animationName);
+    element.style.setProperty('--animate-duration', duration);
+    function handleAnimationEnd(event) {
+      event.stopPropagation();
+      element.classList.remove('animate__animated', animationName);
+      element.removeEventListener('animationend', handleAnimationEnd);
+      resolve();
+    }
+    element.addEventListener('animationend', handleAnimationEnd, { once: true });
+  });
+}
+ 
+const elements = document.querySelectorAll('.block--main-menu a');
+elements.forEach((element) => {
+  element.addEventListener('mouseenter', () => {
+    animateCSS(element, 'pulse', '1s');
+  });
+});
+ 
+// ─── AUTH STATE → Header ─────────────────────────────────────
+// Muestra "Cerrar sesión" si hay usuario activo
+onAuthStateChanged(auth, (user) => {
+  const loginBtn    = document.querySelector('.menu-login');
+  const registerBtn = document.querySelector('.menu-register');
+ 
+  if (user && loginBtn && registerBtn) {
+    loginBtn.textContent = user.displayName
+      ? `Hola, ${user.displayName.split(' ')[0]}`
+      : "Mi cuenta";
+    loginBtn.href = "#";
+ 
+    registerBtn.textContent = "Salir";
+    registerBtn.href = "#";
+    registerBtn.addEventListener('click', async (e) => {
+      e.preventDefault();
+      await signOut(auth);
+      location.reload();
+    });
+  }
+});
+ 
+// ─── INIT CARRITO ─────────────────────────────────────────────
+initCart();
 
 
 /*
 */
-    const products = [
-        {
-            id: 1,
-            name: "Mermelada de Kiwi",
-            flavor: "Kiwi",
-            price: 85,
-            stock: 6,
-            emoji: "",
-            img: '/resources/kiwi.png',
-            desc: "Elaborada con fresas frescas seleccionadas a mano. Su sabor intenso y natural la convierte en la preferida de nuestros clientes. Perfecta para pan tostado, crepes o yogurt.",
-        },
-        {
-            id: 2,
-            name: "Mermelada de Mango",
-            flavor: "Mango",
-            price: 90,
-            stock: 6,
-            emoji: "",
-            img: '/resources/mango.png',
-            desc: "La mermelada que lo tiene todo: dulce con un toque picante que sorprende. Ideal para acompañar quesos, carnes o galletas saladas. ¡Atrévete a probarla!",
-        },
-        {
-            id: 3,
-            name: "Mermelada de Piña",
-            flavor: "Piña",
-            price: 88,
-            stock: 6,
-            emoji: "",
-            img: '/resources/piña.png',
-            desc: "Un sabor oscuro y profundo con notas ligeramente ácidas. Elaborada con zarzamoras silvestres. Excelente para postres o simplemente en una tostada.",
-        },
-        {
-            id: 4,
-            name: "Mermelada de Tamarindo",
-            flavor: "Tamarindo",
-            price: 88,
-            stock: 6,
-            emoji: "",
-            img: '/resources/tamarindo.png',
-            desc: "Un sabor oscuro y profundo con notas ligeramente ácidas. Elaborada con zarzamoras silvestres. Excelente para postres o simplemente en una tostada.",
-        },
-    ];
+
+// const products = [
+//   {
+//     id: "kiwi",
+//     name: "Mermelada de Kiwi",
+//     flavor: "Kiwi",
+//     price: 85,
+//     stock: 6,
+//     img: "/resources/kiwi.png",
+//     active: true,
+//     category: "classic",
+//     desc: "Elaborada con kiwis frescos seleccionados a mano. Su sabor único y natural la hace perfecta para pan tostado, crepes o yogurt."
+//   },
+//   {
+//     id: "mango",
+//     name: "Mermelada de Mango",
+//     flavor: "Mango",
+//     price: 90,
+//     stock: 6,
+//     img: "/resources/mango.png",
+//     active: true,
+//     category: "classic",
+//     desc: "La mermelada que lo tiene todo: dulce tropical con un toque que sorprende. Ideal para acompañar quesos, carnes o galletas saladas."
+//   },
+//   {
+//     id: "uva",
+//     name: "Mermelada de Piña",
+//     flavor: "Piña",
+//     price: 88,
+//     stock: 6,
+//     img: "/resources/piña.png",
+//     active: true,
+//     category: "classic",
+//     desc: "Un sabor intenso con notas ligeramente ácidas. Excelente para postres o simplemente en una tostada."
+//   },
+//   {
+//     id: "tamarindo",
+//     name: "Mermelada de Tamarindo",
+//     flavor: "Tamarindo",
+//     price: 88,
+//     stock: 6,
+//     img: "/resources/tamarindo.png",
+//     active: true,
+//     category: "spicy",
+//     desc: "Sabor auténtico mexicano: agridulce con notas profundas. Perfecta para botanear o darle un toque especial a tus platillos."
+//   }
+// ];
+
+// for (const p of products) {
+//   const { id, ...data } = p;
+//   await setDoc(doc(db, "products", id), {
+//     ...data,
+//     createdAt: serverTimestamp()
+//   });
+//   console.log("Creado:", id);
+// }
+
+
+
  
     function getStockInfo(stock) {
         if (stock === 0) return { text: "Agotado", cls: "out" };

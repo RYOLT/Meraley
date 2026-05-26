@@ -34,6 +34,7 @@ import {
 
 // ─── CONFIG ──────────────────────────────────────────────────
 const firebaseConfig = {
+  apiKey: "AIzaSyC-_drZTirWMatRuo5wqx2o7aBJ6gnplPg",
   authDomain: "merme-db.firebaseapp.com",
   projectId: "merme-db",
   storageBucket: "merme-db.firebasestorage.app",
